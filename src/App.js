@@ -10,6 +10,8 @@ import Books from "./Pages/Books.jsx";
 
 import { books } from "./data.js";
 
+import BookInfo from "./Pages/BookInfo.jsx";
+
 export default function App() {
   return (
     <Router>
@@ -17,11 +19,11 @@ export default function App() {
         <Nav />
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" exact element={<Home />} />
 
-          <Route path="/books" render={() => {<Books books = { books } />}} />
+          <Route path="/books" exact element = {<Books books = { books } />} />
 
-          <Route path="/cart" element={<div />} />
+          <Route path="/books/1" element={<BookInfo books = { books } />} />
         </Routes>
 
         <Footer />
