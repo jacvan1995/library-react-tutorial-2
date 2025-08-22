@@ -34,12 +34,18 @@ export default function App() {
     setCart(cart.filter((book) => book.id !== item.id));
   }
 
+  function numberOfItems() {
+    let counter = 0
+    cart.forEach(item => counter += item.quantity)
+    return counter
+  }
+
   useEffect(() => {}, [cart]);
 
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Nav numberOfItems = {numberOfItems()} />
 
         <Routes>
           <Route path="/" exact element={<Home />} />
@@ -48,7 +54,7 @@ export default function App() {
 
           <Route
             path="/books/:id"
-            element={<BookInfo books={books} addToCart={addToCart} />}
+            element={<BookInfo books={books} addToCart={addToCart} cart = {cart} />}
           />
 
           <Route
