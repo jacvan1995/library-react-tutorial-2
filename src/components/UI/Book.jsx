@@ -6,7 +6,7 @@ import Rating from "./Rating.jsx";
 const Book = ({ book }) => {
   return (
     <div className="book">
-      <Link to = "/books/1">
+      <Link to = {`/books/${book.id}`}>
         <figure className="book__img--wrapper">
           <img src={ book.url } alt="" className="book__img" />
         </figure>
